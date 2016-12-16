@@ -1,0 +1,22 @@
+html, body, input, select, textarea { 
+  font-size: 1.05em !important; 
+}
+
+.chat-window-container {
+  margin-left: 40px;
+  margin-top: 30px;
+}
+
+.chat-line {
+  list-style: none;
+}
+  .user {
+    font-style: italic;
+    font-weight: bold;
+  }
+
+.btn-primary {
+  margin-top: 10px;
+  width: 70px;
+  height: 35px;
+}
