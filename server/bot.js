@@ -28,7 +28,7 @@ var handleUserWithIncompleteProfile = function (user, messageId, data, resolve) 
             if(messageId === 1) {
                 resolve({ message: "Welcome back " + user + "! It looks like I still do not have all your information. What is your last name?", infoType: "last_name" });
             } else {
-                resolve({ message: "Awesome. Thanks! What's your last name?", infoType: "last_name" });
+                resolve({ message: "Awesome. Thanks! What is your last name?", infoType: "last_name" });
             }
 
             break;
@@ -37,7 +37,7 @@ var handleUserWithIncompleteProfile = function (user, messageId, data, resolve) 
             if(messageId === 1) {
                 resolve({ message: "Welcome back " + user + " It looks like I still do not have all your information. Tell me a bit about your work experience.", infoType: "work_experience" });
             } else {
-                resolve({ message: "You rock! What's your work experience?", infoType: "work_experience" })
+                resolve({ message: "You rock! What is your work experience?", infoType: "work_experience" })
             }
 
             break;
@@ -46,7 +46,7 @@ var handleUserWithIncompleteProfile = function (user, messageId, data, resolve) 
             if(messageId === 1) {
                 resolve({ message: "Welcome back " + user + " It looks like I still do not have all your information. What was the highest level of education you received?", infoType: "highest_education" });
             } else {
-                resolve({ message: "Boom! Got it! What's your highest level of education?", infoType: "highest_education" })
+                resolve({ message: "Boom! Got it! What is your highest level of education?", infoType: "highest_education" })
             }
             
             break;
@@ -71,9 +71,9 @@ var handleUserWithIncompleteProfile = function (user, messageId, data, resolve) 
 
         case "address":
             if(messageId === 1) {
-                resolve({ message: "Welcome back " + user + " It looks like I still don not have all your information. What is your address?", infoType: "address" });
+                resolve({ message: "Welcome back " + user + " It looks like I still do not have all your information. What is your address?", infoType: "address" });
             } else {
-                resolve({ message: "Coolio. Real quick what is your address? I promise I'm not a stalker.", infoType: "address" })
+                resolve({ message: "Coolio. Real quick what is your address? I promise I am not a stalker.", infoType: "address" })
             }
             
             break;
