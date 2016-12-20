@@ -1,5 +1,12 @@
-<ul>
-    <li class = "chat-line" ng-repeat="message in messages">
-        <message-item user="{{ message.user }}" content="{{ message.content }}"></message-item>
-    </li>
-</ul>
+<div class="chat-history">
+    <div class="clearfix" ng-repeat="message in messages">
+        <div>
+            <message-item 
+                user="{{ message.user }}" 
+                message-type="{{ message.messageType }}"
+                content="{{ message.content }}"
+                time="{{ message.time }}">       
+            </message-item>
+        </div>
+    </div>
+</div>

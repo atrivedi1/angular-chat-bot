@@ -4,7 +4,9 @@ chatBot.directive('messageItem', function() {
         templateUrl: './directives/message_item/message_item.html',
         scope: {
             user: "@",
+            messageType: "@",
             content: "@",
+            time: "@",
         }
     }
 });

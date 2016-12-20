@@ -1,12 +1,12 @@
-<div>
+<div class="chat-message">
  <form ng-submit="sendMessage()">
    <div>
      <div>
-       <input ng-model="messageContent" type="text" placeholder="Type your message" >
+       <input class="message-to-send" ng-model="messageContent" type="text" placeholder="Type your message" >
      </div>
      
-     <div>
-       <button type="submit" class="btn-primary"> submit</button>
+     <div class="button-container">
+       <button type="submit"> submit</button>
      </div>
    </div>
   </form>
