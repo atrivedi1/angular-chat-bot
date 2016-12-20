@@ -222,7 +222,7 @@ var handleQueryFromUser = function (user, query, resolve, reject) {
     }
 
     else {
-        resolve("Sorry I couldn't quite understand that. Perhaps try asking your question in a different way.")
+        resolve("Sorry, I could not quite understand that. Perhaps try asking your question in a different way.")
     }
 }
 
@@ -266,7 +266,7 @@ var responder = function (user, messageContent, messageId, submissionType) {
                         if(err) throw err;
                         console.log("new user successfully saved")
                         //greet new user
-                        resolve({ message: "Hi " + user + "! It's nice to meet you! I'd love to learn a little more about you. What is your first name?", infoType: "first_name" });
+                        resolve({ message: "Hi " + user + "! It is nice to meet you! I would love to learn a little more about you. What is your first name?", infoType: "first_name" });
                     });
                 }
 
@@ -280,7 +280,7 @@ var responder = function (user, messageContent, messageId, submissionType) {
                 //if user IS in db AND profile information is completely filled out
                 else {
                     console.log("user found and profile complete!");
-                    resolve({ message: "Hi " + user + "! Welcome back! How can I assist you today? If you have a question, I will do my best to answer.", infoType: "userQuery" })
+                    resolve({ message: "Hi " + user + "! Welcome back! How can I help you today? If you have a question, I will do my best to answer it.", infoType: "userQuery" })
                 }
             });
         }

@@ -1,15 +1,21 @@
-<div class="chat-window-container">
-  chat window
+<div class="chat-header">
+    <img src="./images/navi.png" alt="avatar" />
+    
+    <div class="chat-about">
+      <div class="chat-with">Chat with Navi, the friendly robot</div>
+      <div class="chat-with-description">Serving customers since 2016</div>
+    </div>
+</div>
 
-  <message-list messages="messages">
-  </message-list>
+<div>
+  <message-list messages="messages"></message-list>
 
- <message-form
-    conversation-statues="conversationStatus"
-    current-messages="messages"
-    message-content="messageContent"
-    message-id="messageId"
-    submission-type="submissionType"
-    send-message = "updateMessageIdAndSendMessage">
- </message-form>
+  <message-form
+      conversation-statues="conversationStatus"
+      current-messages="messages"
+      message-content="messageContent"
+      message-id="messageId"
+      submission-type="submissionType"
+      send-message = "updateMessageIdAndSendMessage">
+  </message-form>
 </div>

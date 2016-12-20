@@ -1,2 +1,10 @@
-<span class="user">{{ user }}</span>
-<p>{{ content }}</p>
+<div ng-class="{ 'message-data align-right': messageType=='robot-message', 'message-data align-left': messageType=='user-message' }">
+    <i ng-class="{ 'fa fa-circle robot': messageType=='robot-message','fa fa-circle user': messageType=='user-message' }"></i> &nbsp;
+    <span class="message-data-name">{{ user }}</span> 
+    <span class="message-data-time">{{ time }}</span>
+</div>
+
+<div ng-class="{ 'message robot-message float-right': messageType=='robot-message',
+                'message user-message': messageType=='user-message' }">
+    {{ content }}
+</div>

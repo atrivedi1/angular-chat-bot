@@ -4,7 +4,7 @@ chatBot.controller('chatWindow', ['$scope', 'messageService', function($scope, m
   $scope.messageId = 0;
   $scope.messageContent = "";
   $scope.submissionType = messageService.submissionType;
-
+  $scope.scrollToBottom = messageService.scrollToBottom;
 
   $scope.updateMessageIdAndSendMessage = function(){
     $scope.messageId++;
