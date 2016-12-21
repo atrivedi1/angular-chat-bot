@@ -22,7 +22,9 @@ chatBot.service("messageService", function ($rootScope) {
     //BUSINESS LOGIC FOR MANAGING WEBSOCKET AND HANDLING MESSAGES 
 
     //open web socket connection
-    webSocket = new WebSocket("ws://localhost:3000");
+    var url = window.location.hostname || 'localhost:3000';
+
+    webSocket = new WebSocket("ws://" + url);
 
     //on init, web socket sends an initial message for server (aka bot) to respond to
     webSocket.onopen = function (event) {
