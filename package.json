@@ -2,6 +2,9 @@
   "name": "chat_bot",
   "version": "1.0.0",
   "description": "MEAN stack application",
+  "engines": {
+    "node": "6.1.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -15,6 +18,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-ws": "^2.0.0",
-    "mongoose": "^4.7.2"
+    "mongoose": "^4.7.2",
+    "nodemon": "^1.11.0"
   }
 }
