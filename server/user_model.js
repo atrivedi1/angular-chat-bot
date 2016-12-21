@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost/test';
-mongoose.connect(mongodUri);
+mongoose.connect(mongodbUri);
 
 
 var Schema = mongoose.Schema;
