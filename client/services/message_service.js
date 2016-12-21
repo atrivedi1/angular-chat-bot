@@ -24,7 +24,7 @@ chatBot.service("messageService", function ($rootScope) {
     //open web socket connection
     var url = window.location.hostname || 'localhost:3000';
 
-    webSocket = new WebSocket("ws://" + url);
+    webSocket = new WebSocket("wss://" + url);
 
     //on init, web socket sends an initial message for server (aka bot) to respond to
     webSocket.onopen = function (event) {
