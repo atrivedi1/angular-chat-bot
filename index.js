@@ -10,7 +10,7 @@ var expressWs = require('express-ws')(app)
 //middleware
 app.use(express.static('client'));
 app.use(cookieParser());
-
+  
 //adding web sockets functionality to server
 app.ws('/', function(ws, req) {
   ws.on('message', function(message) {

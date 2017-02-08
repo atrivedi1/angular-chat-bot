@@ -15,7 +15,6 @@ chatBot.service("messageService", function ($rootScope) {
     }
 
     this.scrollToBottom = function() {
-        console.log('test test test -->', $('.chat-history')[0].scrollHeight);
         $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
     };
 
