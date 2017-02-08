@@ -19,6 +19,16 @@ chatBot.service("messageService", function ($rootScope) {
         $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
     };
 
+    //get latest submission type
+    this.getSubmissionType = function(){
+        return this.submissionType;
+    };
+
+    //retrieve all messages
+    this.getAllMessages = function(){
+        return this.messages;
+    };
+
     /*********************BUSINESS LOGIC FOR MANAGING WEBSOCKET AND HANDLING MESSAGES************/
     //WEBSOCKET FUNCTIONALITY 
     //open web socket connection
@@ -109,15 +119,5 @@ chatBot.service("messageService", function ($rootScope) {
 
         //ensure that the chat window always displays the lateset messages
         this.scrollToBottom();
-    };
-
-    //get latest submission type
-    this.getSubmissionType = function(){
-        return this.submissionType;
-    };
-
-    //retrieve all messages
-    this.getAllMessages = function(){
-        return this.messages;
     };
 });
