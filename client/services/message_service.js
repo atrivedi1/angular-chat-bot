@@ -45,10 +45,7 @@ chatBot.service("messageService", function ($rootScope) {
     webSocket.onmessage = function (event) {
         //logs every message that passes through web socket
         console.log("socket event: ", event);
-
-        //TODO: create a delay between when user submits message and when robot responds
         this.receiveMessage(event);
-
     }.bind(this);
 
     //MESSAGE FUNCTIONALITY 
@@ -70,7 +67,6 @@ chatBot.service("messageService", function ($rootScope) {
 
         var username = Cookies.get('username');
 
-        //TODO: look into a better way of handling submissionType
         //build outbound message payload
         var newUserMessage = { 
             user: username,
