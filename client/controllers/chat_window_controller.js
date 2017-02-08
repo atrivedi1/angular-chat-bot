@@ -1,10 +1,10 @@
 chatBot.controller('chatWindow', ['$scope', 'messageService', function($scope, messageService) {
   $scope.conversationStatus = messageService.webSocketConnectionStatus;
   $scope.messages = messageService.messages;
+  $scope.submissionType = messageService.submissionType;
+  
   $scope.messageId = 0;
   $scope.messageContent = "";
-  $scope.submissionType = messageService.submissionType;
-  $scope.scrollToBottom = messageService.scrollToBottom;
 
   $scope.updateMessageIdAndSendMessage = function(){
     $scope.messageId++;
