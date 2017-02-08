@@ -1,12 +1,12 @@
 chatBot.service("messageService", function ($rootScope) {
 
-    //VARIABLES
+    /*******************************************VARIABLES****************************************/
     this.messages = [];
     this.submissionType = "";
     this.robotName = "Navi";
     this.webSocketConnectionStatus = true;
 
-    //HELPER FUNCTIONS
+    /******************************************HELPER FUNCTIONS*********************************/
     
     //handles time stamps;
     this.getCurrentTime = function() {
@@ -19,8 +19,8 @@ chatBot.service("messageService", function ($rootScope) {
         $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
     };
 
-    //BUSINESS LOGIC FOR MANAGING WEBSOCKET AND HANDLING MESSAGES 
-
+    /*********************BUSINESS LOGIC FOR MANAGING WEBSOCKET AND HANDLING MESSAGES************/
+    //WEBSOCKET FUNCTIONALITY 
     //open web socket connection
     var url = window.location.hostname || 'localhost:3000';
 
@@ -30,35 +30,6 @@ chatBot.service("messageService", function ($rootScope) {
     webSocket.onopen = function (event) {
         this.sendMessage(this.messages, 0, "init chat app", "");
     }.bind(this);
-
-    //handles inbound payload from web socket
-    this.receiveMessage = function (event) {
-        this.submissionType = JSON.parse(event.data)["infoType"] || null;
-        var parsedEventPayload = JSON.parse(event.data);
-        var newRawRobotMessageContent = this.submissionType ? parsedEventPayload.message : parsedEventPayload;
-        var newRobotMessageContent = newRawRobotMessageContent.replace(/['"]+/g, '');
-
-        var newRobotMessage = { 
-            user: this.robotName, 
-            messageType: "robot-message", 
-            content: newRobotMessageContent, 
-            id: "N/A", 
-            time: this.getCurrentTime(),
-            submissionType: this.submissionType
-        };
-
-        this.messages.push(newRobotMessage);
-        $rootScope.$apply();
-
-        if (this.submissionType === "endConversation" && newRobotMessageContent.search(/I will talk to you soon/i) !== -1) {
-            console.log("trying to close websocket connection")
-            webSocket.close();
-            this.webSocketConnectionStatus = false;
-        }
-
-        //ensure that the chat window always displays the lateset messages
-        this.scrollToBottom();
-    };
 
     //listens for inbound payload from web socket
     webSocket.onmessage = function (event) {
@@ -70,6 +41,7 @@ chatBot.service("messageService", function ($rootScope) {
 
     }.bind(this);
 
+    //MESSAGE FUNCTIONALITY 
     //handles outbound message payload to websocket
     this.sendMessage = function (currentMessages, newMessageId, newUserMessageContent, submissionType) {
         console.log("trying to send message -->", this.submissionType);
@@ -108,6 +80,35 @@ chatBot.service("messageService", function ($rootScope) {
             this.scrollToBottom();
             currentMessages.push(newUserMessage);
         }
+    };
+
+    //handles inbound payload from web socket
+    this.receiveMessage = function (event) {
+        this.submissionType = JSON.parse(event.data)["infoType"] || null;
+        var parsedEventPayload = JSON.parse(event.data);
+        var newRawRobotMessageContent = this.submissionType ? parsedEventPayload.message : parsedEventPayload;
+        var newRobotMessageContent = newRawRobotMessageContent.replace(/['"]+/g, '');
+
+        var newRobotMessage = { 
+            user: this.robotName, 
+            messageType: "robot-message", 
+            content: newRobotMessageContent, 
+            id: "N/A", 
+            time: this.getCurrentTime(),
+            submissionType: this.submissionType
+        };
+
+        this.messages.push(newRobotMessage);
+        $rootScope.$apply();
+
+        if (this.submissionType === "endConversation" && newRobotMessageContent.search(/I will talk to you soon/i) !== -1) {
+            console.log("trying to close websocket connection")
+            webSocket.close();
+            this.webSocketConnectionStatus = false;
+        }
+
+        //ensure that the chat window always displays the lateset messages
+        this.scrollToBottom();
     };
 
     //get latest submission type

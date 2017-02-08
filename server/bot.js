@@ -1,6 +1,8 @@
 var Promise = require('bluebird');
 var User = require('./user_model');
 
+/***************************************RESPONDER HELPER FUNCTIONS ****************************************/
+//check to see if any of the required params for a given user is empty
 var missingInfo = function (userInfo) {
     console.log("checking to see if following user has missing params")
     var requiredParams = ["user_name", "first_name", "last_name", "work_experience", "highest_education", "degree", "school", "address", "linkedIn_URL"];
@@ -18,6 +20,7 @@ var missingInfo = function (userInfo) {
     return false;
 };
 
+//handle returning user who has an incomplete profile
 var handleUserWithIncompleteProfile = function (user, messageId, data, resolve) {
     switch (data) {
         case "first_name":
@@ -89,6 +92,7 @@ var handleUserWithIncompleteProfile = function (user, messageId, data, resolve) 
     }
 };
 
+//enable returning user with incomplete profile to submit additionl background info
 var submitAdditionalBackgroundInfo = function (user, content, submissionType, cb) {
     console.log("trying to update " + submissionType + " field in user object with " + content);
 
@@ -175,6 +179,7 @@ var submitAdditionalBackgroundInfo = function (user, content, submissionType, cb
     }
 }
 
+//handleQuery helper func
 var handleQuery = function(user, param, reject, resolve) {
     User.findOne({ 'user_name': user}, param, function(err, result) {
         console.log("handling individual query!");
@@ -185,6 +190,7 @@ var handleQuery = function(user, param, reject, resolve) {
     })
 }
 
+//handle a user's question 
 var handleQueryFromUser = function (user, query, resolve, reject) {
     console.log("handing query from user!")
     //TODO: add regex to handle queries more intelligently
@@ -226,6 +232,7 @@ var handleQueryFromUser = function (user, query, resolve, reject) {
     }
 }
 
+/***************************************MAIN RESPONDER FUNCTION ****************************************/
 var responder = function (user, messageContent, messageId, submissionType) {
     return new Promise(function (resolve, reject) {
         //IF messageID === 0;
@@ -336,6 +343,5 @@ var responder = function (user, messageContent, messageId, submissionType) {
         return response;
     });
 }
-
 
 module.exports = responder;
