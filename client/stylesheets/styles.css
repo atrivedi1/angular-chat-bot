@@ -59,6 +59,19 @@ body {
     height: 475px;
   }
 
+    .clearfix {
+      list-style: none;
+    }
+
+    .clearfix:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+
     /*MESSAGE DATA*/
     .message-data {
       margin-bottom: 15px;
@@ -119,11 +132,23 @@ body {
         border-bottom-color: #94C2ED;
         left: 93%;
       }
+      
+    .chat-message {
+      padding: 30px;
+    }
 
-   .chat-message {
-    padding: 30px;
-   }
-        
+    .align-left {
+      text-align: left;
+    }
+
+    .align-right {
+      text-align: right;
+    }
+
+    .float-right {
+      float: right;
+    }
+     
 /*MESSAGE FORM*/
   .message-to-send {
     width: 100%;
@@ -153,27 +178,3 @@ body {
       color: #98B2ED;
     }
 
-.align-left {
-  text-align: left;
-}
-
-.align-right {
-  text-align: right;
-}
-
-.float-right {
-  float: right;
-}
-
-.clearfix {
-  list-style: none;
-}
-
-.clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
-	clear: both;
-	height: 0;
-}
