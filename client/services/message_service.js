@@ -11,7 +11,7 @@ chatBot.service("messageService", function ($rootScope) {
     //handles time stamps;
     this.getCurrentTime = function() {
       return new Date().toLocaleTimeString().
-              replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+        replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     }
 
     this.scrollToBottom = function() {
