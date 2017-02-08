@@ -14,6 +14,7 @@ chatBot.service("messageService", function ($rootScope) {
         replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
     }
 
+    //ensures chat window is always @ bottom
     this.scrollToBottom = function() {
         $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
     };
